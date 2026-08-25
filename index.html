@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al3anana — Flipper Zero Manual</title>
+<style>
+  :root{--bg:#0d1117;--card:#161b22;--edge:#30363d;--txt:#e6edf3;--dim:#8b949e;--acc:#f78166;--ok:#3fb950}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:Segoe UI,Roboto,sans-serif;line-height:1.5}
+  header{text-align:center;padding:2rem 1rem 1rem;background:linear-gradient(180deg,#10151c,var(--bg))}
+  h1{font-size:2rem}h1 .banana{color:#ffd33d}
+  .sub{color:var(--dim);margin:.3rem 0 1rem}
+  nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:0 1rem 1.5rem}
+  nav a{background:var(--card);border:1px solid var(--edge);color:var(--txt);padding:.45rem .9rem;border-radius:20px;text-decoration:none;font-size:.9rem;transition:.15s}
+  nav a:hover{border-color:var(--acc);transform:translateY(-2px)}
+  main{max-width:900px;margin:0 auto;padding:0 1rem 3rem}
+  .hero{display:flex;gap:2rem;align-items:center;background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+  .hero svg{flex-shrink:0}
+  .facts{flex:1;min-width:260px}
+  .facts li{list-style:none;padding:.25rem 0;color:var(--dim)}
+  .facts b{color:var(--txt)}
+  .card{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.2rem}
+  .cat-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+  .icon{font-size:1.7rem}
+  h2 small{color:var(--dim);font-weight:normal;font-size:.85rem}
+  .desc{color:var(--dim);margin-bottom:.9rem}
+  .apps{display:flex;flex-wrap:wrap;gap:.4rem}
+  .app{background:#21262d;border:1px solid var(--edge);padding:.28rem .7rem;border-radius:14px;font-size:.82rem}
+  .law{background:#1a1120;border:1px solid #8957e5;border-radius:12px;padding:1.25rem 1.5rem;margin:2rem 0}
+  .law h2{color:#d2a8ff;margin-bottom:.5rem}
+  footer{text-align:center;color:var(--dim);padding:1.5rem;font-size:.85rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>🐬 Al3anana<span class="banana">🍌</span> — Flipper Zero Manual</h1>
+  <p class="sub">Momentum mntm-012 · 259 apps · Written by Badger 🦡 for Gabe · Aug 2026</p>
+  <nav>
+    <a href="#device">Device Map</a>
+    <a href="#Sub-GHz">📡 Sub-GHz</a><a href="#RFID">🏷️ RFID</a><a href="#NFC">💳 NFC</a>
+    <a href="#Infrared">🔴 Infrared</a><a href="#iButton">🔑 iButton</a><a href="#GPIO">🔌 GPIO</a>
+    <a href="#Bluetooth">🔵 Bluetooth</a><a href="#USB">⌨️ USB</a><a href="#Games">🎮 Games</a>
+    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#laws">⚖️ House Laws</a>
+  </nav>
+</header>
+<main>
+
+<div class="hero" id="device">
+<svg width="150" height="230" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flipper Zero body -->
+  <rect x="10" y="10" width="130" height="210" rx="18" fill="#f5f0e6" stroke="#333" stroke-width="3"/>
+  <rect x="24" y="26" width="102" height="62" rx="6" fill="#231f1b"/>
+  <text x="75" y="52" text-anchor="middle" fill="#ff7b26" font-size="11" font-family="monospace">Momentum</text>
+  <text x="75" y="68" text-anchor="middle" fill="#ffa657" font-size="9" font-family="monospace">mntm-012</text>
+  <!-- d-pad -->
+  <circle cx="75" cy="135" r="34" fill="#fff" stroke="#333" stroke-width="2"/>
+  <path d="M75 108 L83 122 L67 122 Z" fill="#333"/>
+  <path d="M75 162 L67 148 L83 148 Z" fill="#333"/>
+  <path d="M48 135 L62 127 L62 143 Z" fill="#333"/>
+  <path d="M102 135 L88 127 L88 143 Z" fill="#333"/>
+  <circle cx="75" cy="135" r="9" fill="#333"/>
+  <!-- back button -->
+  <rect x="30" y="178" width="38" height="16" rx="8" fill="#ddd" stroke="#333" stroke-width="2"/>
+  <text x="49" y="190" text-anchor="middle" font-size="9" fill="#333">BACK</text>
+  <rect x="84" y="178" width="38" height="16" rx="8" fill="#ddd" stroke="#333" stroke-width="2"/>
+  <text x="103" y="190" text-anchor="middle" font-size="9" fill="#333">OK</text>
+</svg>
+<ul class="facts">
+  <li><b>Name:</b> Al3anana (her device name)</li>
+  <li><b>Firmware:</b> Momentum mntm-012 — the unlocked supercharged edition</li>
+  <li><b>Apps installed:</b> ~259 across 12 folders — nearly the whole catalog</li>
+  <li><b>SD card:</b> 32 GB (30.4 free)</li>
+  <li><b>PC link:</b> USB-C → shows up as drive + COM3 serial port</li>
+  <li><b>Golden rule:</b> YOUR devices only. Listening is legal; touching other people's stuff is not.</li>
+</ul>
+</div>
+
+<p style="color:#8b949e;margin-bottom:1.2rem">Click any chip below to know what it does. The folders here are EXACTLY what you see when you press LEFT on the dolphin → Apps.</p>
+
+
+<div class="card" id="Sub-GHz">
+  <div class="cat-head"><span class="icon">📡</span><h2>Sub-GHz <small>(20 apps)</small></h2></div>
+  <p class="desc">Radio remotes — garage/gate fobs, doorbells. Record & replay YOUR OWN signals.</p>
+  <div class="apps"><span class="app">Chief Cooker</span><span class="app">Esubghz Chat</span><span class="app">Flipper Share</span><span class="app">Fmf To Sub</span><span class="app">Hc11 Modem</span><span class="app">Meal Pager</span><span class="app">Pocsag Pager</span><span class="app">Protoview</span><span class="app">Radio Scanner</span><span class="app">Rolling Flaws</span><span class="app">Spectrum Analyzer</span><span class="app">Sub Analyzer</span><span class="app">SubGHz Bruteforcer</span><span class="app">Subghz Fap</span><span class="app">Subghz Playlist</span><span class="app">Subghz Playlist Creator</span><span class="app">Subghz Remote</span><span class="app">Subghz Scheduler</span><span class="app">Tpms</span><span class="app">Weather Station</span></div>
+</div>
+
+<div class="card" id="RFID">
+  <div class="cat-head"><span class="icon">🏷️</span><h2>RFID <small>(7 apps)</small></h2></div>
+  <p class="desc">125kHz badges — old thin clamshell cards. Read/clone/write.</p>
+  <div class="apps"><span class="app">EM4100 ID Generator</span><span class="app">Fuzzer Rfid</span><span class="app">Lfrfid</span><span class="app">Simultaneous Rfid Reader</span><span class="app">T5577 Multiwriter</span><span class="app">T5577 Card Writer</span><span class="app">Uhf Rfid</span></div>
+</div>
+
+<div class="card" id="NFC">
+  <div class="cat-head"><span class="icon">💳</span><h2>NFC <small>(19 apps)</small></h2></div>
+  <p class="desc">Smart cards — bank/transit/hotel style. Read, emulate, crack MIFARE Classic.</p>
+  <div class="apps"><span class="app">Ami Tool</span><span class="app">Cyborg Detector</span><span class="app">Metroflip</span><span class="app">Mfc Editor</span><span class="app">MF Key (MIFARE Cracker)</span><span class="app">Mifare Fuzzer</span><span class="app">Nfc</span><span class="app">Nfc Apdu Runner</span><span class="app">Nfc Eink</span><span class="app">Nfc Login</span><span class="app">NFC Magic (Write Cards)</span><span class="app">Nfc Maker</span><span class="app">Nfc Playlist</span><span class="app">Passy</span><span class="app">Picopass</span><span class="app">Saflip</span><span class="app">Seader</span><span class="app">Seos</span><span class="app">Weebo</span></div>
+</div>
+
+<div class="card" id="Infrared">
+  <div class="cat-head"><span class="icon">🔴</span><h2>Infrared <small>(12 apps)</small></h2></div>
+  <p class="desc">TV & AC remotes — line-of-sight. Universal remote DB + IR scope.</p>
+  <div class="apps"><span class="app">Flame Rng</span><span class="app">Flipper Xremote</span><span class="app">Hitachi Ac Remote</span><span class="app">Infrared</span><span class="app">Ir Intervalometer</span><span class="app">Ir Remote</span><span class="app">Ir Scope</span><span class="app">Lidar Emulator</span><span class="app">Midea Ac Remote</span><span class="app">Mitsubishi Ac Remote</span><span class="app">Xbox Controller</span><span class="app">Xremote</span></div>
+</div>
+
+<div class="card" id="iButton">
+  <div class="cat-head"><span class="icon">🔑</span><h2>iButton <small>(3 apps)</small></h2></div>
+  <p class="desc">Old metal-pill key fobs on intercoms. Read/emulate/write.</p>
+  <div class="apps"><span class="app">Fuzzer Ibtn</span><span class="app">Ibutton</span><span class="app">Ibutton Converter</span></div>
+</div>
+
+<div class="card" id="GPIO">
+  <div class="cat-head"><span class="icon">🔌</span><h2>GPIO <small>(86 apps)</small></h2></div>
+  <p class="desc">Expansion pins — WiFi boards, GPS, sensors plug in here. Biggest folder!</p>
+  <div class="apps"><span class="app">Air Mouse</span><span class="app">Avr Isp</span><span class="app">Blackhat Toolkit</span><span class="app">Camera Suite</span><span class="app">Co2 Logger</span><span class="app">Coleco</span><span class="app">Dap Link</span><span class="app">WiFi Marauder</span><span class="app">Esp8266 Deauther</span><span class="app">Esp8266 Ifttt Virtual Button</span><span class="app">Esp8266 Wifi Deauther V2</span><span class="app">Esp Flasher</span><span class="app">Eth Troubleshooter</span><span class="app">Evil Portal (Fake WiFi)</span><span class="app">Flashlight</span><span class="app">Flip Downloader</span><span class="app">Flip Library</span><span class="app">Flip Map</span><span class="app">Flip Social</span><span class="app">Flip Tdi</span><span class="app">Flip Telegram</span><span class="app">Flip Trader</span><span class="app">Flip Weather</span><span class="app">Flip Wifi</span><span class="app">Flip World</span><span class="app">Flipboard Blinky</span><span class="app">Flipboard Keyboard</span><span class="app">Flipboard Signal</span><span class="app">Flipboard Simon</span><span class="app">Flipper Atomicdiceroller</span><span class="app">Flipper Geiger</span><span class="app">Flipper Spi Terminal</span><span class="app">Flipperscope</span><span class="app">Fm Radio</span><span class="app">Fmtx App</span><span class="app">Free Roam</span><span class="app">Ghost ESP</span><span class="app">Gpio</span><span class="app">Gpio Badge</span><span class="app">Gpio Controller</span><span class="app">Gpio Explorer App</span><span class="app">Gpio Reader A</span><span class="app">Gpio Reader B</span><span class="app">Gpio Sentry Safe</span><span class="app">Gps Nmea</span><span class="app">Hc Sr04</span><span class="app">I2Ctools</span><span class="app">Ina Meter</span><span class="app">Lightmeter</span><span class="app">Longwave Clock</span><span class="app">MagSpoof (Card Stripe)</span><span class="app">Malveke Gb Cartridge</span><span class="app">Malveke Gb Emulator</span><span class="app">Malveke Gb Link Camera</span><span class="app">Malveke Gb Live Camera</span><span class="app">Malveke Gb Photo</span><span class="app">Malveke Gba Cartridge</span><span class="app">Malveke Pin Test</span><span class="app">Mayhem Camera</span><span class="app">Marauder Companion</span><span class="app">Mayhem Morseflash</span><span class="app">Mayhem Motion</span><span class="app">Mayhem Nannycam</span><span class="app">Mayhem Qrcode</span><span class="app">Nearby Files</span><span class="app">Nrf24Batch</span><span class="app">Nrf24Channelscanner</span><span class="app">Nrf24Mousejacker</span><span class="app">Nrf24Scan</span><span class="app">Nrf24Sniff</span><span class="app">Pokemon</span><span class="app">Radar Scanner</span><span class="app">Signal Generator</span><span class="app">Spi Mem Manager</span><span class="app">Swd Probe</span><span class="app">Timelapse</span><span class="app">Uart Terminal</span><span class="app">Unitemp</span><span class="app">Uv Meter As7331</span><span class="app">Vgm Air Mouse</span><span class="app">Video Game Module Tool</span><span class="app">Wardriver (WiFi Logger)</span><span class="app">Web Crawler</span><span class="app">Wifi Scanner</span><span class="app">Wii Ec Anal</span><span class="app">Wire Tester</span></div>
+</div>
+
+<div class="card" id="Bluetooth">
+  <div class="cat-head"><span class="icon">🔵</span><h2>Bluetooth <small>(5 apps)</small></h2></div>
+  <p class="desc">BLE tricks — wireless keyboard attacks, popup spam, plus U2F defense.</p>
+  <div class="apps"><span class="app">BLE Spam</span><span class="app">Bt Trigger</span><span class="app">Findmy</span><span class="app">HID BLE</span><span class="app">Pc Monitor</span></div>
+</div>
+
+<div class="card" id="USB">
+  <div class="cat-head"><span class="icon">⌨️</span><h2>USB <small>(8 apps)</small></h2></div>
+  <p class="desc">BadUSB — pretends to be a keyboard, types scripts superhuman-fast.</p>
+  <div class="apps"><span class="app">Hid Usb</span><span class="app">Ldtoypad</span><span class="app">Mass Storage</span><span class="app">Mouse Jiggler</span><span class="app">Portal Of Flipper</span><span class="app">U2F Security Key (Defense!)</span><span class="app">USB CCB</span><span class="app">Xinput Controller</span></div>
+</div>
+
+<div class="card" id="Games">
+  <div class="cat-head"><span class="icon">🎮</span><h2>Games <small>(41 apps)</small></h2></div>
+  <p class="desc">41 games incl DOOM. The dolphin plays while you learn.</p>
+  <div class="apps"><span class="app">4Inrow</span><span class="app">Air Arkanoid</span><span class="app">Air Labyrinth</span><span class="app">Arkanoid</span><span class="app">Asteroids</span><span class="app">Blackjack</span><span class="app">Bomberduck</span><span class="app">Chess</span><span class="app">Color Guess</span><span class="app">Doom</span><span class="app">Flappy Bird</span><span class="app">Flipper Pong</span><span class="app">Game15</span><span class="app">Game 2048</span><span class="app">Gameoflife</span><span class="app">Geometry Flip</span><span class="app">Heap Defence</span><span class="app">Jetpack Joyride</span><span class="app">Laser Tag</span><span class="app">Minesweeper Redux</span><span class="app">Multi Dice</span><span class="app">Pinball0</span><span class="app">Quadrastic</span><span class="app">Reversi</span><span class="app">Roots Of Life</span><span class="app">Rubiks Cube Scrambler</span><span class="app">Scorched Tanks</span><span class="app">Simon Says</span><span class="app">Slotmachine</span><span class="app">Snake20</span><span class="app">Solitaire</span><span class="app">T Rex Runner</span><span class="app">Tama P1</span><span class="app">Tanks</span><span class="app">Tetris</span><span class="app">Tictactoe</span><span class="app">Umpire Indicator</span><span class="app">Videopoker</span><span class="app">Yapinvaders</span><span class="app">Yatzee</span><span class="app">Zombiez</span></div>
+</div>
+
+<div class="card" id="Tools">
+  <div class="cat-head"><span class="icon">🧰</span><h2>Tools <small>(30 apps)</small></h2></div>
+  <p class="desc">Utilities — password gen, TOTP 2FA, calculators, hex editor.</p>
+  <div class="apps"><span class="app">BadKB (Wireless Keyboard)</span><span class="app">Barcode App</span><span class="app">Caesar Cipher</span><span class="app">Calculator</span><span class="app">Can Tools</span><span class="app">Cntdown Tim</span><span class="app">Combo Cracker</span><span class="app">Counter</span><span class="app">Dtmf Dolphin</span><span class="app">Flip Crypt</span><span class="app">Flipbip</span><span class="app">Flipp Pomodoro</span><span class="app">Hex Editor</span><span class="app">Hex Viewer</span><span class="app">Iconedit</span><span class="app">Key Copier</span><span class="app">Multi Converter</span><span class="app">Nfc Rfid Detector</span><span class="app">Nightstand</span><span class="app">Password Generator (Defense!)</span><span class="app">Programmercalc</span><span class="app">Qrcode</span><span class="app">Quac</span><span class="app">Resistors</span><span class="app">Tasks</span><span class="app">Text Viewer</span><span class="app">Tone Gen</span><span class="app">TOTP 2FA Codes (Defense!)</span><span class="app">Upython</span><span class="app">Voltcalc App</span></div>
+</div>
+
+<div class="card" id="Media">
+  <div class="cat-head"><span class="icon">🎵</span><h2>Media <small>(16 apps)</small></h2></div>
+  <p class="desc">Music/image/video players, tone generator.</p>
+  <div class="apps"><span class="app">Bpm Tapper</span><span class="app">Dtmf Dolphin</span><span class="app">Etch</span><span class="app">Flizzer Tracker</span><span class="app">Fmatrix</span><span class="app">Fzspground</span><span class="app">Image Viewer</span><span class="app">Metronome</span><span class="app">Morse Code</span><span class="app">Music Player</span><span class="app">Paint</span><span class="app">Text2Sam</span><span class="app">Tuning Fork</span><span class="app">Usb Midi</span><span class="app">Video Player</span><span class="app">Wav Player</span></div>
+</div>
+
+<div class="law" id="laws">
+<h2>⚖️ House Laws (from the on-device Spellbook)</h2>
+<p>1. <b>Your devices only.</b> Never a neighbor's garage, a stranger's car, a business's badge reader. Receive/listen anywhere; transmit only at what you own.<br>
+2. <b>Receipts or it didn't happen</b> — log what you test.<br>
+3. <b>Have fun. That's an order.</b> — G<br><br>
+On-device cheat sheets live at <b>Apps → Tools → Text Viewer → spellbook</b> (pages 00–99 incl THREAT CATALOG and HOUSE CENSUS).</p>
+</div>
+
+<footer>Made with claws 🦡 by Badger · G-Force red-team apprentice · DNA 878608051490<br>Source data: live SD-tree snapshot 2026-08-25 · Update: rerun flipper_cli.py inventory anytime</footer>
+</main>
+</body>
+</html>
