@@ -41,7 +41,7 @@
     <a href="#Sub-GHz">📡 Sub-GHz</a><a href="#RFID">🏷️ RFID</a><a href="#NFC">💳 NFC</a>
     <a href="#Infrared">🔴 Infrared</a><a href="#iButton">🔑 iButton</a><a href="#GPIO">🔌 GPIO</a>
     <a href="#Bluetooth">🔵 Bluetooth</a><a href="#USB">⌨️ USB</a><a href="#Games">🎮 Games</a>
-    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#laws">⚖️ House Laws</a>
+    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#sessionlog">📓 Session Log</a><a href="#laws">⚖️ House Laws</a>
   </nav>
 </header>
 <main>
@@ -157,7 +157,19 @@
     <span class="app"><b>WiFi Scanner</b> — channel survey</span>
     <span class="app"><b>Deauther apps</b> — kick devices (LAB ONLY, illegal on others)</span>
   </div>
-  <p style="margin-top:.8rem;color:#8b949e">📦 <b>Flash-ready status (Aug 25):</b> Marauder v1.15.1 for Flipper devboard is staged — both on the PC (<code>flipper-lab\apps\</code>) AND on Al3anana's SD card. On-device ESP Flasher also bundles its own copies (wroom/s2/s3). Flash takes ~2 min: GPIO → ESP Flasher → Marauder → Flash.</p>
+  <p style="margin-top:.8rem;color:#8b949e">📦 <b>Flash-ready status (Aug 26):</b> Marauder v1.15.1 staged on PC (<code>flipper-lab\apps\</code>) and on SD; ESP Flasher also bundles its own copies (wroom/s2/s3). ⚡ <b>Aug 26 board check:</b> Badger ran a lock-timing blind-detect over RPC — <b>no devboard seated on GPIO right now.</b> When you plug one in: easiest path = open <b>qFlipper 1.3.3 → WiFi panel</b> (looks like this screen) → pick <b>Marauder (has Evil Portal)</b> → INSTALL. It flashes through the Flipper acting as bridge. Old-school path also works: GPIO → ESP Flasher → Quick Flash → Flipper WiFi Devboard → Marauder, then OK ×3 (~2 min). <b>Verify:</b> open WiFi Marauder companion app → Scan → serial traffic within ~10 s = dragon awake.</p>
+</div>
+
+<div class="card" id="sessionlog" style="border-color:#58a6ff">
+  <div class="cat-head"><span class="icon">📓</span><h2>Session Log <small>(on-device spellbook mirror)</small></h2></div>
+  <p class="desc">Every hardware session writes a numbered page to Al3anana's SD (<code>/ext/spellbook/00–99</code>) — read them at Apps → Tools → Text Viewer → spellbook. Latest entry mirrors here so the manual never drifts from the turtle's brain.</p>
+  <div class="apps">
+    <span class="app"><b>Page 25 · Aug 26 session</b> — 🛡️ Two-layer compression defense learned fleet-side (conversations on cloud 1M context, summaries squeezed free by the house 27B; <i>always pin the aux window — firmware auto-lowers thresholds to whatever it detects!</i>)</span>
+    <span class="app"><b>Same page</b> — Fake-receipts law: badger caught her own Python error trying to pose as oracle evidence. Real firmware replies only.</span>
+    <span class="app"><b>Same page</b> — qFlipper GUI law: synthetic clicks bounce off Qt panels; drive the device itself over RPC, keep qFlipper as passive LCD mirror. Loader opens take the full .fap path, not display names.</span>
+    <span class="app"><b>Blind-detect protocol v1 (new tool)</b> — detect a devboard with zero eyes: attempt an app-open during a would-be flash; real writes hold the app-loader lock for minutes, absent boards free it in seconds. Ran clean Aug 26.</span>
+    <span class="app"><b>Firmware posture</b> — mntm-012 confirmed latest stable (dev build d3f89dfe deliberately skipped); stock rescue 1.4.3 still aboard /ext/update; SD tree snapshotted to <code>flipper-lab/backups/al3anana-tree-20260826.txt</code>.</span>
+  </div>
 </div>
 
 <div class="law" id="laws">
@@ -168,7 +180,7 @@
 On-device cheat sheets live at <b>Apps → Tools → Text Viewer → spellbook</b> (pages 00–99 incl THREAT CATALOG and HOUSE CENSUS).</p>
 </div>
 
-<footer>Made with claws 🦡 by Badger · G-Force red-team apprentice · DNA 878608051490<br>Source data: live SD-tree snapshot 2026-08-25 · Update: rerun flipper_cli.py inventory anytime</footer>
+<footer>Made with claws 🦡 by Badger · G-Force red-team apprentice · DNA 878608051490<br>Source data: live SD-tree snapshots 2026-08-25 &amp; 2026-08-26 (spellbook page 25 write byte-verified) · Update: rerun flipper_cli.py inventory anytime</footer>
 </main>
 </body>
 </html>
