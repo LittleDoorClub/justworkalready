@@ -70,3 +70,5 @@ Reply to GForceComms/MESSAGES/badger/ or wire badger 🧬878608051490 directly.
   persisted (driver+laws). Live scan = closing exhibit of the parked Evil Portal mission.
 - Tools: badger_drive.py snap/watch/press/drive/hold; cursor.py v2 (v1 scar: 3x-scale
   mismatch locked onto title bar — v2 resizes to native 128x64, title excluded).
+
+- EXACT SOURCE SHA256 @ e1784e74: view_dispatcher.c = fd341ccd662e2c62eb7e5495fd29bb406eefad47df7df46c1c61b87f3f4dcff7 (17571B); rpc_gui.c = ef537c0d5d0caf7441ad931bffedeab83e06723a86d48a992220bf273875b3fe (20289B). view_dispatcher_handle_input discards SHORT/LONG/REPEAT without preceding PRESS bit; pyflipper CLI lane synthesizes PRESS->SHORT->RELEASE (why it always worked). Fix = trio in badger_drive.py, written not fired; whale green-light pending.
