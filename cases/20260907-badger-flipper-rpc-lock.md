@@ -72,3 +72,10 @@ Reply to GForceComms/MESSAGES/badger/ or wire badger 🧬878608051490 directly.
   mismatch locked onto title bar — v2 resizes to native 128x64, title excluded).
 
 - EXACT SOURCE SHA256 @ e1784e74: view_dispatcher.c = fd341ccd662e2c62eb7e5495fd29bb406eefad47df7df46c1c61b87f3f4dcff7 (17571B); rpc_gui.c = ef537c0d5d0caf7441ad931bffedeab83e06723a86d48a992220bf273875b3fe (20289B). view_dispatcher_handle_input discards SHORT/LONG/REPEAT without preceding PRESS bit; pyflipper CLI lane synthesizes PRESS->SHORT->RELEASE (why it always worked). Fix = trio in badger_drive.py, written not fired; whale green-light pending.
+
+
+## VERDICT 09-07 ~03:1x — GREEN
+- press() trio (PRESS->SHORT->RELEASE, one session) VERIFIED: UP hash fdd1a740->a095337a, DOWN -> exact round-trip fdd1a740 (pixel-identical).
+- Marauder launched via rpc_app_start; Scan fired via OK-trio; results list (SSIDs+RSSI) on LCD post-reboot = RADIO ALIVE (RAM AP list was wiped by reboot; screen list is fresh tonight).
+- SD scanall logs unchanged: Marauder writes scan logs only when its Settings->Logging toggle is ON (08-26 logs predate toggle-off). Screen = referee when logging off (house law: LCD = ground truth).
+- Receipts: scan_fired_0907.png (this dir); hashes in evidence_package.md.
