@@ -41,7 +41,7 @@
     <a href="#Sub-GHz">📡 Sub-GHz</a><a href="#RFID">🏷️ RFID</a><a href="#NFC">💳 NFC</a>
     <a href="#Infrared">🔴 Infrared</a><a href="#iButton">🔑 iButton</a><a href="#GPIO">🔌 GPIO</a>
     <a href="#Bluetooth">🔵 Bluetooth</a><a href="#USB">⌨️ USB</a><a href="#Games">🎮 Games</a>
-    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#sessionlog">📓 Session Log</a><a href="#laws">⚖️ House Laws</a>
+    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#ghostpoet">👻 Ghost Poet</a><a href="#evilportal">📡 Evil Portal</a><a href="#sessionlog">📓 Session Log</a><a href="#laws">⚖️ House Laws</a>
   </nav>
 </header>
 <main>
@@ -172,6 +172,34 @@
     <span class="app"><b>Crash &amp; recovery receipt</b> — post-flash the Flipper crashed-rebooted once ("FS check failed" = dirty-mount flag, not damage). Self-healed on remount; cargo verified intact via storage list: spellbook pages 00–25 + Evil Portal staging all present, battery 100%/health 100%.</span>
     <span class="app"><b>Evil Portal STAGED (same day)</b> — custom "GABS Guest WiFi" captive page + SSID config written to SD (read-back verified). Portal goes hot the moment a devboard is seated; test plan locked.</span>
     <span class="app"><b>Firmware posture</b> — mntm-012 confirmed latest stable (dev build d3f89dfe deliberately skipped); stock rescue 1.4.3 still aboard /ext/update; SD tree snapshotted to <code>flipper-lab/backups/al3anana-tree-20260826.txt</code>.</span>
+    <span class="app"><b>Page 27 · Sep 7 session</b> — ⌨️ <b>BadUSB live fire on the house PC.</b> BadKB re-enumerated Al's USB from serial into a full HID keyboard+mouse composite (VID_3554, PnP receipts) — that mode switch <i>is</i> the real ghost-keyboard primitive. v1 payload's keystrokes died in the Windows driver-install race (<i>forensic proof: RunMRU registry had no "notepad" entry</i>). <b>v2 fix staged + verified:</b> DELAY 5000 head, on-device readback confirmed.</span>
+    <span class="app"><b>Page 27 · same day</b> — 📡 WiFi spoof run prepped: Marauder Evil Portal ready, SSID <code>GABS-Guest</code> broadcasts only after "Start portal", GABS captive page + log captures staged on SD. Together-run checklists locked (runbook cards below).</span>
+  </div>
+</div>
+
+<div class="card" id="ghostpoet" style="border-color:#f78166">
+  <div class="cat-head"><span class="icon">👻</span><h2>Ghost Poet Runbook <small>(BadKB together-run)</small></h2></div>
+  <p class="desc">The demo where the dolphin becomes a keyboard and types on YOUR unlocked PC. Harmless payload (a poem), maximum lesson: <b>an unlocked PC obeys any USB that plugs in.</b></p>
+  <ol style="color:#8b949e;padding-left:1.2rem">
+    <li><b>Gabe:</b> unlock the PC, sit on the desktop. <b>Badger:</b> opens BadKB → Demos, eyes on the LCD confirm the <code>ghost_poet</code> bar.</li>
+    <li><b>Badger:</b> RIGHT → <code>Run</code> → OK. Al flips USB to HID — <b>COM3 dies, that's normal, hands off 5&nbsp;seconds</b> (v2 driver-settle delay).</li>
+    <li>Notepad opens itself; the ghost poem types letter by letter. Device Manager even shows the new "HID Keyboard Device" mid-typing.</li>
+    <li><b>The lesson, out loud:</b> v1 failed because the driver install ate the keystrokes — real attackers pad delays for exactly this. Forensics (RunMRU registry) proved the miss. <i>Receipts over vibes, even for ghosts.</i></li>
+    <li><b>The defense:</b> <code>Win+L</code> is the whole shield. A locked screen turns a ghost keyboard into a poet with no page. Mystery keyboard in Device Manager = ghost at the port.</li>
+  </ol>
+</div>
+
+<div class="card" id="evilportal" style="border-color:#3fb950">
+  <div class="cat-head"><span class="icon">📡</span><h2>Evil Portal Runbook <small>(WiFi spoof together-run)</small></h2></div>
+  <p class="desc">Al + the WiFi devboard broadcast a fake <code>GABS-Guest</code> network. Your phone joins, a "GABS Guest WiFi" login page appears, and anything typed into it lands on Al's SD in plaintext. That's hotel/airport WiFi crime anatomy, on our own couch.</p>
+  <ol style="color:#8b949e;padding-left:1.2rem">
+    <li><b>Pre-flight:</b> devboard seated on GPIO (verified 09-07). Flipper awake, desktop showing.</li>
+    <li><b>Badger:</b> open <code>WiFi Marauder</code> (GPIO folder) → <b>Start portal</b>. SSID appears <i>only</i> after this — never on boot (verified law).</li>
+    <li><b>Gabe:</b> phone → WiFi → join <b>GABS-Guest</b>. The GABS captive page pops up. Type anything — it's a lab.</li>
+    <li><b>Badger:</b> read the loot at <code>/ext/apps_data/evil_portal/</code> — whatever the portal "stole" sits right there. No WPA2 cracked, no phone breached: the PHONE VOLUNTEERED the secret. That's the whole trick.</li>
+    <li><b>The defense:</b> never log in on open networks you didn't set up; the phone's "unsecured network" warning is the tripwire. SSID never appears → reseat the devboard (unplug/replug from GPIO), proven last rung.</li>
+  </ol>
+</div>
   </div>
 </div>
 
