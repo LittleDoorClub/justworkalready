@@ -41,7 +41,7 @@
     <a href="#Sub-GHz">📡 Sub-GHz</a><a href="#RFID">🏷️ RFID</a><a href="#NFC">💳 NFC</a>
     <a href="#Infrared">🔴 Infrared</a><a href="#iButton">🔑 iButton</a><a href="#GPIO">🔌 GPIO</a>
     <a href="#Bluetooth">🔵 Bluetooth</a><a href="#USB">⌨️ USB</a><a href="#Games">🎮 Games</a>
-    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#ghostpoet">👻 Ghost Poet</a><a href="#evilportal">📡 Evil Portal</a><a href="#triphall">🚙 Trip Haul</a><a href="#sessionlog">📓 Session Log</a><a href="#laws">⚖️ House Laws</a>
+    <a href="#Tools">🧰 Tools</a><a href="#Media">🎵 Media</a><a href="#ghostpoet">👻 Ghost Poet</a><a href="#evilportal">📡 Evil Portal</a><a href="#reddrills">🎯 Red Drills</a><a href="#securityops">🦡 Security Ops</a><a href="#findmap">🗺️ Find Map</a><a href="#triphall">🚙 Trip Haul</a><a href="#sessionlog">📓 Session Log</a><a href="#laws">⚖️ House Laws</a>
   </nav>
 </header>
 <main>
@@ -232,6 +232,19 @@
 <div class="card" id="triphall" style="border-color:#ffd33d">
   <div class="cat-head"><span class="icon">🚙</span><h2>Trip Haul <small>(62 apps · Sep 8 · official bundle)</small></h2></div>
   <p class="desc">Road-trip loadout, all from the official mntm-012 release zip (API-matched, md5-verified). <b>Recon:</b> Wardriver logs every WiFi+BT device as you drive; WiFi Scanner + Ghost ESP show the radio world live. <b>Lessons:</b> nRF24 suite (mousejacking = wireless keyboards/mice that trust anyone), ESP8266 Deauther (why WPA3 matters — own networks only, that's law). <b>Road life:</b> FlipDownloader installs new apps from any browser, FlipMap+GPS navigates (GPS board optional), sensors read CO2/temperature/light. <b>The refusal:</b> no broadcast/spoof transmitters — receive-only outside our walls.</p>
+</div>
+
+<div class="card" id="reddrills" style="border-color:#f85149">
+  <div class="cat-head"><span class="icon">🎯</span><h2>Red Drill Program <small>(WiFi defense, Sep 8)</small></h2></div>
+  <p class="desc"><b>Why:</b> intruders use illegal tools — so we drill the same attack classes on <b>our own walls only</b>, prove the detection tell, then turn on the setting that kills the class. Full plan: <code>flipper-lab\GABS_WIFI_RED_DRILL_PLAN.md</code>. <b>Swarm census finding:</b> house WiFi currently runs WPA2-Personal — the exact gap the drills fix.</p>
+  <div class="apps">
+    <span class="app"><b>Drill B — Evil Portal decoy run</b> (rank 1, ✅ proven 09-07): fake portal serves on <code>GABS-Guest</code>, decoy creds get captured → <b>tell:</b> unexpected portal prompt / duplicate SSID → <b>armor:</b> never type creds into a portal you didn't set up; check the BSSID.</span>
+    <span class="app"><b>Drill A — Deauth disconnect storm</b> (rank 2): targeted deauth at OUR laptop on the legacy SSID vs the hardened SSID → <b>tell:</b> WLAN-AutoConfig Event 8003 storms, reason-7 → <b>armor:</b> WPA3-SAE + PMF (802.11w) REQUIRED — forged deauth frames get ignored, class dead.</span>
+    <span class="app"><b>Drill C — Handshake-capture audit</b> (rank 3, zero RF): config checklist — WPA3-SAE on, WPS off, PSK ≥16 random chars, guest PSK rotated → capture becomes worthless.</span>
+    <span class="app"><b>Drill D — Probe sniff</b> (rank 4, receive-only): log which of OUR devices still beacon their real MAC/SSID → <b>armor:</b> per-network MAC randomization everywhere.</span>
+    <span class="app"><b>Drill E — Karma</b> (rank 5): 🚫 <b>active form banned</b> — answering probes hits whatever device asked, can't be fenced to our property. Passive variant only: measure what it WOULD catch, fix auto-join settings.</span>
+  </div>
+  <p style="margin-top:.8rem;color:#8b949e">📋 Run rules: Gabe present, one drill per window, minimum power/duration, targeted never broadcast, decoy creds only, teardown channel-sweep ×3 clean before close. Every window leaves a receipt bundle in <code>RECEIPTS/wifi-red-drill_YYYYMMDD/</code> — that bundle IS the product we sell.</p>
 </div>
 
 <div class="law" id="laws">
