@@ -204,6 +204,31 @@
 </div>
   </div>
 </div>
+<div class="card" id="securityops" style="border-color:#a371f7">
+  <div class="cat-head"><span class="icon">🦡</span><h2>Security Ops <small>(new · Sep 8)</small></h2></div>
+  <p class="desc">The home lane. Find it on device: <b>spellbook → <code>black/06_SECURITY_OPS.txt</code></b> and <b>spellbook → <code>29_FIND_MAP.txt</code></b>.</p>
+  <div class="apps">
+    <span class="app"><b>GABS SEAL</b> (Tools folder) — 🆕 Sep 8: house signing vault built by badger. Ed25519 key generated <b>on device</b>, lives in internal flash, never leaves the shell. PC signs wires through it: <code>seal-pub</code> / <code>seal-sign &lt;sha256&gt;</code>. First live seal VERIFIED with an independent crypto library (libsodium). Pubkey published: <code>GForceComms/KEYS/PUBLISHED_PUBKEYS.md</code>. This kills the FROM-side wire-spoof hole caught Aug 28.</span>
+    <span class="app"><b>Password Generator</b> + <b>TOTP 2FA</b> (Tools) — the quiet defenders.</span>
+    <span class="app"><b>BadUSB / BadKB</b> (USB) — ghost keyboard drills → lesson: <code>Win+L</code>.</span>
+    <span class="app"><b>WiFi Marauder / Evil Portal / Deauther</b> (GPIO + devboard) — red-drill kit. <b>Our SSID, our phones, scheduled windows, Gabe present.</b> Each drill ends with the detection tell + the hardening step (WPA3, 802.11w/PMF, never type creds into a portal you didn't set up).</span>
+    <span class="app"><b>Sub-GHz/NFC/RFID census</b> — read+clone OUR fobs; anything fixed-code gets replaced.</span>
+  </div>
+  <p style="margin-top:.8rem;color:#8b949e">⚖️ The law that makes this legal: <b>receive anywhere, transmit only at our own gear.</b> Same knowledge attackers use, drilled on our walls, so the defense is proven not guessed.</p>
+</div>
+
+<div class="card" id="findmap" style="border-color:#58a6ff">
+  <div class="cat-head"><span class="icon">🗺️</span><h2>Find Map <small>(where everything lives)</small></h2></div>
+  <p class="desc"><b>On the Flipper:</b> OK → Apps → pick a folder → OK. BACK exits. All 13 folders + the spellbook are mapped on device at <b>spellbook → <code>29_FIND_MAP.txt</code></b>.</p>
+  <div class="apps">
+    <span class="app">📡 Sub-GHz (20) · 🏷️ RFID (7) · 💳 NFC (19) · 🔴 Infrared (12) · 🔑 iButton (3)</span>
+    <span class="app">🔌 GPIO (86, devboard) · 🔵 Bluetooth (5) · ⌨️ USB (8) · 🧰 Tools (30) · 🎵 Media (16)</span>
+    <span class="app">🎮 Games (41) · 📜 Scripts · 📦 assets</span>
+    <span class="app"><b>Spellbook</b> (Text Viewer → spellbook): <code>atlas/</code> every app explained · <code>black/</code> attack classes + armor + <code>06_SECURITY_OPS</code> · pages 25–29 session logs · <code>99</code> RESCUE (unbrick)</span>
+    <span class="app"><b>On the PC:</b> lab = <code>C:\Users\Owner\flipper-lab\</code> · this manual = the link below · receipts = <code>GForceComms\RECEIPTS\</code></span>
+  </div>
+</div>
+
 <div class="card" id="triphall" style="border-color:#ffd33d">
   <div class="cat-head"><span class="icon">🚙</span><h2>Trip Haul <small>(62 apps · Sep 8 · official bundle)</small></h2></div>
   <p class="desc">Road-trip loadout, all from the official mntm-012 release zip (API-matched, md5-verified). <b>Recon:</b> Wardriver logs every WiFi+BT device as you drive; WiFi Scanner + Ghost ESP show the radio world live. <b>Lessons:</b> nRF24 suite (mousejacking = wireless keyboards/mice that trust anyone), ESP8266 Deauther (why WPA3 matters — own networks only, that's law). <b>Road life:</b> FlipDownloader installs new apps from any browser, FlipMap+GPS navigates (GPS board optional), sensors read CO2/temperature/light. <b>The refusal:</b> no broadcast/spoof transmitters — receive-only outside our walls.</p>
