@@ -257,5 +257,38 @@ On-device cheat sheets live at <b>Apps → Tools → Text Viewer → spellbook</
 
 <footer>Made with claws 🦡 by Badger · G-Force red-team apprentice · DNA 878608051490<br>Source data: live SD-tree snapshots 2026-08-25 &amp; 2026-08-26 (spellbook page 25 write byte-verified) · Update: rerun flipper_cli.py inventory anytime</footer>
 </main>
+
+<style>
+/* collapsed-by-default on small screens: hide apps lists unless expanded */
+@media (max-width: 820px){
+  .card .apps, .card .desc, .card ol { display:none; }
+  .card.expanded .apps, .card.expanded .desc, .card.expanded ol { display:block; }
+  .card .cat-head { cursor:pointer; }
+  .card .cat-head::after { content:' ▸'; color:var(--dim); float:right; }
+  .card.expanded .cat-head::after { content:' ▾'; }
+}
+</style>
+
+<script>
+// tap any nav pill or category header to expand/collapse its card (mobile-friendly)
+document.addEventListener('click', function(e){
+  var a = e.target.closest('nav a');
+  if(a){
+    var id = a.getAttribute('href').slice(1);
+    var card = document.getElementById(id);
+    if(card){
+      document.querySelectorAll('.card.expanded').forEach(function(c){ if(c!==card) c.classList.remove('expanded'); });
+      card.classList.toggle('expanded');
+    }
+    return; // let the anchor scroll too
+  }
+  var head = e.target.closest('.card .cat-head');
+  if(head){
+    var card = head.closest('.card');
+    card.classList.toggle('expanded');
+    e.preventDefault();
+  }
+});
+</script>
 </body>
 </html>
