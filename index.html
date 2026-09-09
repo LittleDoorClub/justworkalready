@@ -21,7 +21,7 @@
   .facts li{list-style:none;padding:.25rem 0;color:var(--dim)}
   .facts b{color:var(--txt)}
   .card{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.2rem}
-  .cat-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
+  .cat-head{cursor:pointer;display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem}
   .icon{font-size:1.7rem}
   h2 small{color:var(--dim);font-weight:normal;font-size:.85rem}
   .desc{color:var(--dim);margin-bottom:.9rem}
@@ -270,7 +270,7 @@ On-device cheat sheets live at <b>Apps → Tools → Text Viewer → spellbook</
 </style>
 
 <script>
-// tap any nav pill or category header to expand/collapse its card (mobile-friendly)
+// tap any nav pill or category header: mobile = expand/collapse; desktop = highlight + scroll so every tap visibly responds
 document.addEventListener('click', function(e){
   var a = e.target.closest('nav a');
   if(a){
@@ -279,6 +279,7 @@ document.addEventListener('click', function(e){
     if(card){
       document.querySelectorAll('.card.expanded').forEach(function(c){ if(c!==card) c.classList.remove('expanded'); });
       card.classList.toggle('expanded');
+      flash(card);
     }
     return; // let the anchor scroll too
   }
@@ -287,8 +288,14 @@ document.addEventListener('click', function(e){
     var card = head.closest('.card');
     card.classList.toggle('expanded');
     e.preventDefault();
+    flash(card);
   }
 });
+function flash(card){
+  card.style.transition = 'box-shadow .15s';
+  card.style.boxShadow = '0 0 0 3px #58a6ff';
+  setTimeout(function(){ card.style.boxShadow = ''; }, 700);
+}
 </script>
 </body>
 </html>
